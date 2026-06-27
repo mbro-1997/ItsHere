@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" role="img" aria-labelledby="title desc">
+  <title id="title">Light pixel rider bounce loader</title>
+  <desc id="desc">A simple blocky electric bike rider bouncing up and down on a light background.</desc>
+  <style>
+    :root {
+      --ink: #142027;
+      --bg: #f6fbf8;
+      --card: #ffffff;
+      --line: #d9e7df;
+      --green: #32d6a0;
+      --blue: #55bee4;
+      --yellow: #ffd36a;
+      --red: #ff6b66;
+    }
+    .ride {
+      animation: bounce 760ms steps(2, end) infinite;
+      transform-origin: 160px 116px;
+    }
+    .wheel {
+      animation: wheel 760ms linear infinite;
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+    .dash-a { animation: dash 760ms steps(2, end) infinite; }
+    .dash-b { animation: dash 760ms steps(2, end) infinite reverse; }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    @keyframes wheel {
+      to { transform: rotate(360deg); }
+    }
+    @keyframes dash {
+      0%, 100% { opacity: .35; transform: translateX(0); }
+      50% { opacity: 1; transform: translateX(-10px); }
+    }
+  </style>
+
+  <rect width="320" height="180" rx="28" fill="var(--bg)"/>
+  <rect x="18" y="18" width="284" height="144" rx="20" fill="var(--card)" stroke="var(--line)" stroke-width="4"/>
+
+  <g opacity=".8">
+    <rect x="38" y="34" width="44" height="8" rx="3" fill="var(--green)"/>
+    <rect x="94" y="34" width="58" height="8" rx="3" fill="var(--blue)"/>
+    <rect x="164" y="34" width="50" height="8" rx="3" fill="var(--yellow)"/>
+  </g>
+
+  <g class="ride" stroke="var(--ink)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+    <g class="wheel">
+      <circle cx="82" cy="134" r="24" fill="#ffffff"/>
+      <path d="M82 110v48M58 134h48M65 117l34 34M99 117l-34 34" stroke="var(--blue)" stroke-width="4"/>
+      <circle cx="82" cy="134" r="8" fill="var(--blue)"/>
+    </g>
+    <g class="wheel">
+      <circle cx="212" cy="134" r="24" fill="#ffffff"/>
+      <path d="M212 110v48M188 134h48M195 117l34 34M229 117l-34 34" stroke="var(--blue)" stroke-width="4"/>
+      <circle cx="212" cy="134" r="8" fill="var(--blue)"/>
+    </g>
+
+    <path d="M82 134h98l34-50" fill="none"/>
+    <path d="M130 134l30-50h48" fill="none"/>
+    <rect x="108" y="102" width="86" height="28" rx="7" fill="var(--green)"/>
+    <rect x="100" y="126" width="54" height="20" rx="5" fill="var(--red)"/>
+
+    <path d="M146 78l-22 48" fill="none"/>
+    <path d="M164 80l34 46" fill="none"/>
+    <rect x="128" y="54" width="46" height="42" rx="9" fill="var(--blue)"/>
+    <rect x="134" y="22" width="36" height="36" rx="8" fill="var(--yellow)"/>
+    <rect x="126" y="16" width="56" height="16" rx="4" fill="var(--green)"/>
+    <rect x="164" y="40" width="10" height="10" fill="var(--ink)" stroke="none"/>
+  </g>
+
+  <g>
+    <rect class="dash-a" x="48" y="154" width="54" height="6" rx="2" fill="var(--blue)"/>
+    <rect class="dash-b" x="120" y="154" width="68" height="6" rx="2" fill="var(--green)"/>
+    <rect class="dash-a" x="210" y="154" width="42" height="6" rx="2" fill="var(--yellow)"/>
+  </g>
+</svg>

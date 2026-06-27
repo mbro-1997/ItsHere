@@ -1,0 +1,153 @@
+.home-page {
+  height: 100vh;
+  min-height: 100vh;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.map {
+  height: 100vh;
+  width: 100%;
+}
+
+.locate-btn {
+  position: absolute;
+  right: 18rpx;
+  top: calc(18rpx + env(safe-area-inset-top));
+  width: 78rpx;
+  height: 78rpx;
+  border-radius: 22rpx;
+  background: rgba(255, 255, 255, 0.96);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 12rpx 34rpx rgba(17, 24, 39, 0.14);
+  border: 1rpx solid #edf2f0;
+  z-index: 3;
+}
+
+.locate-icon {
+  position: relative;
+  width: 52rpx;
+  height: 52rpx;
+}
+
+.locate-ring {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 34rpx;
+  height: 34rpx;
+  border-radius: 50%;
+  border: 7rpx solid #101818;
+  box-sizing: border-box;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.locate-arm {
+  position: absolute;
+  background: #101818;
+  border-radius: 999rpx;
+  z-index: 1;
+}
+
+.arm-top {
+  left: 50%;
+  top: 0;
+  width: 5rpx;
+  height: 15rpx;
+  transform: translateX(-50%);
+}
+
+.arm-bottom {
+  left: 50%;
+  bottom: 0;
+  width: 5rpx;
+  height: 15rpx;
+  transform: translateX(-50%);
+}
+
+.arm-left {
+  top: 50%;
+  left: 0;
+  width: 15rpx;
+  height: 5rpx;
+  transform: translateY(-50%);
+}
+
+.arm-right {
+  top: 50%;
+  right: 0;
+  width: 15rpx;
+  height: 5rpx;
+  transform: translateY(-50%);
+}
+
+.locate-core {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 14rpx;
+  height: 14rpx;
+  border-radius: 50%;
+  background: #101818;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+}
+
+.route-panel {
+  position: absolute;
+  left: 28rpx;
+  right: 28rpx;
+  bottom: calc(34rpx + env(safe-area-inset-bottom));
+  padding: 26rpx;
+  border-radius: 30rpx;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1rpx solid #edf2f0;
+  box-shadow: 0 18rpx 50rpx rgba(17, 24, 39, 0.12);
+}
+
+.route-field {
+  height: 92rpx;
+  margin-bottom: 16rpx;
+  padding: 0 22rpx;
+  border-radius: 24rpx;
+  background: #f7faf9;
+  display: flex;
+  align-items: center;
+  gap: 18rpx;
+  font-weight: 800;
+}
+
+.route-value {
+  min-width: 0;
+  flex: 1;
+  font-size: 32rpx;
+  line-height: 1.25;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.route-value.selected {
+  color: #101818;
+  font-weight: 900;
+}
+
+.route-value.placeholder {
+  color: #9aa5a6;
+  font-weight: 800;
+}
+
+.dot {
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: 50%;
+  background: #0f9276;
+}
+
+.dot.end {
+  background: #202828;
+}

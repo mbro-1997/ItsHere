@@ -1,0 +1,33 @@
+<view class="page">
+  <view class="title">品牌建议</view>
+  <view class="hint">想在品牌配置里看到哪个品牌，可以在这里提交。</view>
+
+  <view class="card form-card">
+    <view class="field-label">品牌名称</view>
+    <input
+      class="brand-input"
+      value="{{brandName}}"
+      maxlength="64"
+      placeholder="例如：茶百道"
+      bindinput="onInput"
+      confirm-type="done"
+      bindconfirm="onSubmit"
+    />
+    <view class="primary-btn submit-btn" bindtap="onSubmit">提交建议</view>
+  </view>
+
+  <view class="card result-card" wx:if="{{result}}">
+    <view class="result-title">{{result.normalizedName}}</view>
+    <view class="result-line">{{result.message}}</view>
+    <view class="progress">
+      <view class="progress-bar" style="width: {{result.progress}}%;"></view>
+    </view>
+    <view class="result-meta">{{result.suggestUserCount}} / 10 个用户建议后，会进入待补充品牌池。</view>
+  </view>
+</view>
+
+<view wx:if="{{globalLoading}}" class="global-loader">
+  <view class="global-loader-box">
+    <image class="global-loader-image" src="/assets/rider-loader-bounce.svg" mode="aspectFit" />
+  </view>
+</view>

@@ -1,0 +1,49 @@
+<view class="page">
+  <view class="row">
+    <view>
+      <view class="title">个人点位</view>
+      <view class="hint">已添加 {{places.length}} / 5</view>
+    </view>
+    <view class="secondary-btn add" bindtap="onShowForm">添加地点</view>
+  </view>
+  <view class="card selected-card" wx:if="{{selectedPlace}}">
+    <view class="section-label">待保存地点</view>
+    <view class="readonly-row">
+      <view class="readonly-label">点位名称</view>
+      <view class="readonly-value">{{selectedPlace.name}}</view>
+    </view>
+    <view class="readonly-row">
+      <view class="readonly-label">详细地址</view>
+      <view class="readonly-value">{{selectedPlace.address}}</view>
+    </view>
+    <view class="action-row">
+      <view class="secondary-btn ghost" bindtap="onClearSelected">重新选择</view>
+      <view class="primary-btn save" bindtap="onSubmit">保存地点</view>
+    </view>
+  </view>
+  <view class="card empty" wx:if="{{!selectedPlace && places.length === 0}}">
+    暂无个人点位，点击“添加地点”搜索并保存常用地点。
+  </view>
+  <view
+    class="place-swipe"
+    wx:for="{{places}}"
+    wx:key="id"
+    data-index="{{index}}"
+    bindtouchstart="onPlaceTouchStart"
+    bindtouchmove="onPlaceTouchMove"
+    bindtouchend="onPlaceTouchEnd"
+  >
+    <view class="delete-action" catchtap="onDeletePlace" data-id="{{item.id}}">删除</view>
+    <view class="card place {{item.swiping ? 'swiping' : ''}}" style="transform: translateX({{item.translateX}}rpx);" bindtap="onCloseDelete">
+      <view class="place-content">
+        <view class="name">{{item.name}}</view>
+        <view class="place-info">{{item.addressText}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+<view wx:if="{{globalLoading}}" class="global-loader">
+  <view class="global-loader-box">
+    <image class="global-loader-image" src="/assets/rider-loader-bounce.svg" mode="aspectFit" />
+  </view>
+</view>

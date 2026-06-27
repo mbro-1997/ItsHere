@@ -1,0 +1,13 @@
+.name { font-size: 30rpx; font-weight: 900; }
+.add-card { display: flex; flex-direction: column; gap: 24rpx; }
+.list-card { display: flex; flex-direction: column; gap: 18rpx; }
+.input-row { display: grid; grid-template-columns: minmax(0, 1fr) 130rpx; gap: 14rpx; }
+input { height: 76rpx; padding: 0 22rpx; border-radius: 38rpx; background: #f7faf9; font-weight: 900; }
+.add { height: 76rpx; }
+.empty { padding: 28rpx 0 6rpx; color: #8a9697; font-size: 26rpx; font-weight: 800; }
+.tag-swipe { position: relative; overflow: hidden; border-radius: 26rpx; }
+.tag-item { position: relative; z-index: 2; min-height: 112rpx; padding: 20rpx 24rpx; border-radius: 26rpx; background: #f7faf9; display: flex; align-items: center; gap: 20rpx; transition: transform 220ms ease; }
+.tag-item.swiping { transition: none; }
+.tag-mark { width: 68rpx; height: 68rpx; border-radius: 24rpx; background: #e2f4ef; color: #0f9276; display: flex; align-items: center; justify-content: center; font-size: 32rpx; font-weight: 900; }
+.tag-name { color: #202828; font-size: 30rpx; line-height: 1.35; font-weight: 900; word-break: break-all; }
+.delete-action { position: absolute; top: 0; right: 0; bottom: 0; width: 136rpx; border-radius: 26rpx; background: #f05d5e; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 28rpx; font-weight: 900; z-index: 1; }

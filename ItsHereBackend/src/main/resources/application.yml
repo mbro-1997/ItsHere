@@ -1,0 +1,30 @@
+server:
+  port: ${SERVER_PORT:8686}
+
+spring:
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:local}
+
+  application:
+    name: its-here-backend
+  datasource:
+    url: ${MYSQL_URL:jdbc:mysql://localhost:3306/itshere?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai}
+    username: ${MYSQL_USERNAME:root}
+    password: ${MYSQL_PASSWORD:}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis:
+  mapper-locations: classpath*:mapper/**/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+
+its-here:
+  wechat:
+    app-id: ${WECHAT_APP_ID:}
+    app-secret: ${WECHAT_APP_SECRET:}
+  map:
+    provider: tencent
+    key: ${TENCENT_MAP_KEY:}
+    route-url: ${TENCENT_MAP_ROUTE_URL:https://apis.map.qq.com/ws/direction/v1/ebicycling/}
+    geocoder-url: ${TENCENT_MAP_GEOCODER_URL:https://apis.map.qq.com/ws/geocoder/v1/}
+    suggestion-url: ${TENCENT_MAP_SUGGESTION_URL:https://apis.map.qq.com/ws/place/v1/suggestion/}

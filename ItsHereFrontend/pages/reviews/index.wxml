@@ -1,0 +1,22 @@
+<view class="page">
+  <view class="title">我的评价</view>
+  <view class="card empty" wx:if="{{reviews.length === 0}}">暂无评价</view>
+  <view class="card review-card" wx:for="{{reviews}}" wx:key="id">
+    <view class="row">
+      <view>
+        <view class="name">{{item.name}}</view>
+        <view class="review-badge {{item.visibility === 'public' ? 'public' : 'private'}}">{{item.visibilityText}}</view>
+      </view>
+      <view class="review-side">
+        <view class="stars">{{item.stars}}</view>
+        <view class="time">{{item.timeText}}</view>
+      </view>
+    </view>
+    <view class="hint">{{item.text}}</view>
+  </view>
+</view>
+<view wx:if="{{globalLoading}}" class="global-loader">
+  <view class="global-loader-box">
+    <image class="global-loader-image" src="/assets/rider-loader-bounce.svg" mode="aspectFit" />
+  </view>
+</view>

@@ -1,0 +1,37 @@
+<view class="page filter-page">
+  <view class="title">结果筛选</view>
+  <view class="hint">搜索只在前端过滤当前结果里的品牌和标签。</view>
+  <input class="search" value="{{keyword}}" placeholder="搜类别 / 品牌 / 标签" bindinput="onInput" />
+  <scroll-view class="tabs-scroll" scroll-x>
+    <view class="tabs">
+      <view
+        wx:for="{{tabs}}"
+        wx:key="*this"
+        class="tab {{activeTab === item ? 'active' : ''}}"
+        data-tab="{{item}}"
+        bindtap="onSelectTab"
+      >{{item}}</view>
+    </view>
+  </scroll-view>
+  <view class="card option" wx:for="{{options}}" wx:key="key">
+    <view class="mark">{{item.mark}}</view>
+    <view>
+      <view class="place-name">{{item.name}}</view>
+      <view class="place-meta">{{item.meta}}</view>
+    </view>
+    <switch
+      checked="{{item.enabled}}"
+      color="#0f9276"
+      data-type="{{item.type}}"
+      data-id="{{item.id}}"
+      data-name="{{item.name}}"
+      bindchange="onToggle"
+    />
+  </view>
+  <view class="primary-btn bottom" bindtap="onConfirm">确定</view>
+</view>
+<view wx:if="{{globalLoading}}" class="global-loader">
+  <view class="global-loader-box">
+    <image class="global-loader-image" src="/assets/rider-loader-bounce.svg" mode="aspectFit" />
+  </view>
+</view>

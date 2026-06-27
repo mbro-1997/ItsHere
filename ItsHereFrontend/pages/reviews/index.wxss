@@ -1,0 +1,9 @@
+.name { font-size: 30rpx; font-weight: 900; max-width: 480rpx; }
+.stars { color: #f0b429; font-size: 24rpx; }
+.empty { color: #8a9697; font-size: 28rpx; line-height: 1.5; font-weight: 800; text-align: center; }
+.review-card .hint { color: #202828; font-size: 28rpx; font-weight: 800; }
+.review-side { text-align: right; flex: 0 0 auto; }
+.time { margin-top: 8rpx; color: #9aa5a6; font-size: 22rpx; font-weight: 700; }
+.review-badge { display: inline-flex; align-items: center; height: 44rpx; margin-top: 12rpx; padding: 0 16rpx; border-radius: 22rpx; font-size: 22rpx; font-weight: 900; }
+.review-badge.private { background: #fff4d8; color: #9a6a00; }
+.review-badge.public { background: #e9f8f1; color: #0f9276; }

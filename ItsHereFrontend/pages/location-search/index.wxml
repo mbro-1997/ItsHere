@@ -1,0 +1,38 @@
+<view class="page search-page">
+  <view class="search-bar">
+    <input
+      class="search-input"
+      value="{{keyword}}"
+      placeholder="{{target === 'userPlace' ? '输入地点' : (target === 'start' ? '输入起点' : '输入终点')}}"
+      focus
+      selection-start="{{selectionStart}}"
+      selection-end="{{selectionEnd}}"
+      confirm-type="search"
+      bindinput="onInput"
+      bindconfirm="onConfirm"
+    />
+  </view>
+
+  <view class="status" wx:if="{{keyword.length > 0 && keyword.length < 2}}">继续输入，至少 2 个字开始联想</view>
+  <view class="status" wx:elif="{{searching}}">正在查找相关地点...</view>
+  <view class="status" wx:elif="{{keyword.length >= 2 && suggestions.length === 0}}">暂无相关地点</view>
+
+  <view class="suggestion-list">
+    <view
+      class="suggestion-item"
+      wx:for="{{suggestions}}"
+      wx:key="id"
+      data-index="{{index}}"
+      bindtap="onSelectSuggestion"
+    >
+      <view class="suggestion-title">{{item.title}}</view>
+      <view class="suggestion-address">{{item.address}}</view>
+    </view>
+  </view>
+</view>
+
+<view wx:if="{{globalLoading}}" class="global-loader">
+  <view class="global-loader-box">
+    <image class="global-loader-image" src="/assets/rider-loader-bounce.svg" mode="aspectFit" />
+  </view>
+</view>

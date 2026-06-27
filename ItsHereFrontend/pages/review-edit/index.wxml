@@ -1,0 +1,26 @@
+<view class="page">
+  <view class="title">写评价</view>
+  <view class="hint">评价可以只给自己看，也可以公开给其他人参考。</view>
+  <view class="card">
+    <view class="stars">
+      <view
+        wx:for="{{[1,2,3,4,5]}}"
+        wx:key="*this"
+        class="star {{rating >= item ? 'active' : ''}}"
+        data-rating="{{item}}"
+        bindtap="onRating"
+      >★</view>
+    </view>
+    <textarea class="textarea" value="{{content}}" placeholder="写一下这个地方怎么样" bindinput="onInput" />
+    <view class="tabs">
+      <view class="tab {{visibility === 'private' ? 'active' : ''}}" data-visibility="private" bindtap="onVisibility">仅自己可见</view>
+      <view class="tab {{visibility === 'public' ? 'active' : ''}}" data-visibility="public" bindtap="onVisibility">公开给其他人</view>
+    </view>
+    <view class="primary-btn" bindtap="onSubmit">提交评价</view>
+  </view>
+</view>
+<view wx:if="{{globalLoading}}" class="global-loader">
+  <view class="global-loader-box">
+    <image class="global-loader-image" src="/assets/rider-loader-bounce.svg" mode="aspectFit" />
+  </view>
+</view>

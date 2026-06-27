@@ -1,0 +1,75 @@
+<view class="page route-page">
+  <map
+    class="map"
+    latitude="{{center.latitude}}"
+    longitude="{{center.longitude}}"
+    markers="{{markers}}"
+    polyline="{{polyline}}"
+    scale="14"
+    show-location
+    bindmarkertap="onMarkerTap"
+  />
+  <view class="marker-popup" wx:if="{{selectedPlace}}">
+    <view class="popup-close" catchtap="onClosePopup">×</view>
+    <view class="popup-head">
+      <view class="mark popup-mark">{{selectedPlace.mark}}</view>
+      <view class="popup-main">
+        <view class="popup-title">{{selectedPlace.name}}</view>
+        <view class="popup-meta">{{selectedPlace.businessCategory || selectedPlace.brandName || '点位'}} · {{selectedPlace.distanceText}}</view>
+      </view>
+    </view>
+    <view class="popup-address">{{selectedPlace.address || '暂无地址'}}</view>
+    <view class="popup-badges">
+      <text class="badge {{badge.type}}" wx:for="{{selectedPlace.badges}}" wx:for-item="badge" wx:key="text">{{badge.text}}</text>
+    </view>
+    <view class="popup-actions">
+      <view class="secondary-btn popup-copy" catchtap="onCopyAddress" data-copy="{{selectedPlace.copyText}}">复制地址</view>
+      <view class="primary-btn popup-detail" catchtap="onOpenSelectedDetail">查看详情</view>
+    </view>
+  </view>
+  <view
+    class="result-sheet {{sheetExpanded ? 'expanded' : 'collapsed'}} {{sheetDragging ? 'dragging' : ''}}"
+    style="height: {{sheetHeightRpx}}rpx;"
+  >
+    <view
+      class="sheet-drag-area"
+      catchtouchstart="onSheetTouchStart"
+      catchtouchmove="onSheetTouchMove"
+      catchtouchend="onSheetTouchEnd"
+      bindtap="onToggleSheet"
+    >
+      <view class="sheet-handle"></view>
+    </view>
+    <view
+      class="row sheet-head"
+      catchtouchstart="onSheetTouchStart"
+      catchtouchmove="onSheetTouchMove"
+      catchtouchend="onSheetTouchEnd"
+    >
+      <view class="title small">顺路点位</view>
+      <view class="secondary-btn compact" catchtap="onOpenFilter">品牌筛选</view>
+    </view>
+    <scroll-view class="sheet-list" scroll-y>
+      <view class="empty" wx:if="{{!loading && places.length === 0}}">当前筛选下没有顺路点位</view>
+      <view class="place-row" wx:for="{{places}}" wx:key="id" data-index="{{index}}" bindtap="onOpenDetail">
+        <view class="mark">{{item.mark}}</view>
+        <view class="place-main">
+          <view class="place-name">{{item.name}}</view>
+          <view class="place-meta">{{item.meta}}</view>
+          <view>
+            <text class="badge {{badge.type}}" wx:for="{{item.badges}}" wx:for-item="badge" wx:key="text">{{badge.text}}</text>
+          </view>
+        </view>
+        <view class="place-side">
+          <view>{{item.distanceText}}</view>
+          <view class="copy" catchtap="onCopyAddress" data-copy="{{item.copyText}}">复制地址</view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>
+<view wx:if="{{globalLoading}}" class="global-loader">
+  <view class="global-loader-box">
+    <image class="global-loader-image" src="/assets/rider-loader-bounce.svg" mode="aspectFit" />
+  </view>
+</view>

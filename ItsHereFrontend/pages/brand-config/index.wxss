@@ -1,0 +1,35 @@
+.category-scroll {
+  width: 100%;
+  margin-top: 22rpx;
+  white-space: nowrap;
+}
+
+.category-tabs {
+  display: inline-flex;
+  gap: 12rpx;
+  min-width: 100%;
+}
+
+.category-tab {
+  height: 72rpx;
+  padding: 0 26rpx;
+  border-radius: 36rpx;
+  background: #fff;
+  color: #778485;
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+  font-weight: 900;
+  box-shadow: 0 8rpx 22rpx rgba(17, 24, 39, 0.04);
+}
+
+.category-tab.active {
+  background: #0f9276;
+  color: #fff;
+}
+
+.brand-row { display: grid; grid-template-columns: 76rpx minmax(0, 1fr) auto; gap: 18rpx; align-items: center; }
+.mark { width: 76rpx; height: 76rpx; border-radius: 24rpx; background: #e9f8f1; color: #0f9276; display: flex; align-items: center; justify-content: center; font-size: 32rpx; font-weight: 900; }
+.name { font-size: 30rpx; font-weight: 900; }
+.compact { margin-top: 6rpx; font-size: 24rpx; }
+.empty { color: #8a9697; font-size: 28rpx; line-height: 1.5; font-weight: 800; text-align: center; }

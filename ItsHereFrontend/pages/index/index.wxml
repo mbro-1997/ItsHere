@@ -1,0 +1,37 @@
+<view class="page home-page">
+  <map
+    class="map"
+    latitude="{{mapCenter.latitude}}"
+    longitude="{{mapCenter.longitude}}"
+    markers="{{markers}}"
+    scale="14"
+    show-location
+  />
+  <view class="locate-btn" bindtap="onLocateMe" aria-label="定位">
+    <view class="locate-icon">
+      <view class="locate-arm arm-top"></view>
+      <view class="locate-arm arm-right"></view>
+      <view class="locate-arm arm-bottom"></view>
+      <view class="locate-arm arm-left"></view>
+      <view class="locate-ring"></view>
+      <view class="locate-core"></view>
+    </view>
+  </view>
+
+  <view class="route-panel">
+    <view class="route-field" bindtap="onOpenStartSearch">
+      <view class="dot"></view>
+      <view class="route-value selected">{{startText}}</view>
+    </view>
+    <view class="route-field" bindtap="onOpenEndSearch">
+      <view class="dot end"></view>
+      <view class="route-value {{end ? 'selected' : 'placeholder'}}">{{endText}}</view>
+    </view>
+    <view class="primary-btn" bindtap="onSearchRoute">开始查找顺路点</view>
+  </view>
+</view>
+<view wx:if="{{globalLoading}}" class="global-loader">
+  <view class="global-loader-box">
+    <image class="global-loader-image" src="/assets/rider-loader-bounce.svg" mode="aspectFit" />
+  </view>
+</view>

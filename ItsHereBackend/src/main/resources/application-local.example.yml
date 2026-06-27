@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    password: your_mysql_password
+
+its-here:
+  wechat:
+    app-id: your_wechat_app_id
+    app-secret: your_wechat_app_secret
+  map:
+    key: your_tencent_map_key

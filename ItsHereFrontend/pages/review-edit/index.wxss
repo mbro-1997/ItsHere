@@ -1,0 +1,7 @@
+.stars { display: flex; gap: 10rpx; margin-top: 4rpx; }
+.star { color: #c8d1d0; font-size: 48rpx; }
+.star.active { color: #f0b429; }
+.textarea { width: 100%; min-height: 220rpx; margin: 22rpx 0; padding: 22rpx; box-sizing: border-box; border-radius: 24rpx; background: #f7faf9; font-weight: 800; }
+.tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 14rpx; margin-bottom: 22rpx; }
+.tab { height: 72rpx; border-radius: 36rpx; background: #f0f4f3; color: #667273; display: flex; align-items: center; justify-content: center; font-weight: 900; }
+.tab.active { background: #e9f8f1; color: #0f9276; }

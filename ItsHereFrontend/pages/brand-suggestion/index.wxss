@@ -1,0 +1,67 @@
+.form-card {
+  display: flex;
+  flex-direction: column;
+  gap: 22rpx;
+}
+
+.field-label {
+  color: #202828;
+  font-size: 30rpx;
+  font-weight: 900;
+}
+
+.brand-input {
+  height: 88rpx;
+  padding: 0 24rpx;
+  border-radius: 28rpx;
+  background: #f7faf9;
+  color: #202828;
+  font-size: 30rpx;
+  font-weight: 900;
+  box-sizing: border-box;
+}
+
+.submit-btn {
+  margin-top: 6rpx;
+}
+
+.result-card {
+  background: linear-gradient(135deg, #e9f8f1 0%, #ffffff 72%);
+}
+
+.result-title {
+  color: #0f9276;
+  font-size: 38rpx;
+  line-height: 1.2;
+  font-weight: 900;
+}
+
+.result-line {
+  margin-top: 14rpx;
+  color: #202828;
+  font-size: 28rpx;
+  line-height: 1.5;
+  font-weight: 800;
+}
+
+.progress {
+  height: 18rpx;
+  margin-top: 24rpx;
+  border-radius: 999rpx;
+  background: #dce6e3;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  border-radius: 999rpx;
+  background: #0f9276;
+}
+
+.result-meta {
+  margin-top: 14rpx;
+  color: #748182;
+  font-size: 24rpx;
+  line-height: 1.45;
+  font-weight: 800;
+}

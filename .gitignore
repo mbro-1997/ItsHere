@@ -1,0 +1,20 @@
+# Local secrets and environment overrides
+ItsHereBackend/src/main/resources/application-local.yml
+ItsHereFrontend/utils/env.local.js
+.env
+.env.*
+
+# Build output
+ItsHereBackend/target/
+ItsHereFrontend/miniprogram_npm/
+ItsHereFrontend/dist/
+
+# WeChat DevTools local private config
+ItsHereFrontend/project.private.config.json
+
+# Editor and OS files
+.DS_Store
+.idea/
+.vscode/
+ItsHereBackend/.vscode/
+ItsHereFrontend/.vscode/

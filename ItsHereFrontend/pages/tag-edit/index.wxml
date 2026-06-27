@@ -1,0 +1,35 @@
+<view class="page">
+  <view class="title">标签管理</view>
+  <view class="hint">个人标签仅自己可见，会随顺路结果返回。</view>
+  <view class="card add-card">
+    <view class="name">新增标签</view>
+    <view class="input-row">
+      <input value="{{inputValue}}" placeholder="输入标签" bindinput="onInput" />
+      <view class="secondary-btn add" bindtap="onAddTag">添加</view>
+    </view>
+  </view>
+  <view class="card list-card">
+    <view class="name">已有标签</view>
+    <view class="empty" wx:if="{{tags.length === 0}}">暂无标签</view>
+    <view
+      class="tag-swipe"
+      wx:for="{{tags}}"
+      wx:key="name"
+      data-index="{{index}}"
+      bindtouchstart="onTagTouchStart"
+      bindtouchmove="onTagTouchMove"
+      bindtouchend="onTagTouchEnd"
+    >
+      <view class="delete-action" catchtap="onDeleteTag" data-name="{{item.name}}">删除</view>
+      <view class="tag-item {{item.swiping ? 'swiping' : ''}}" style="transform: translateX({{item.translateX}}rpx);" bindtap="onCloseDelete">
+        <view class="tag-mark">{{item.mark}}</view>
+        <view class="tag-name">{{item.name}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+<view wx:if="{{globalLoading}}" class="global-loader">
+  <view class="global-loader-box">
+    <image class="global-loader-image" src="/assets/rider-loader-bounce.svg" mode="aspectFit" />
+  </view>
+</view>

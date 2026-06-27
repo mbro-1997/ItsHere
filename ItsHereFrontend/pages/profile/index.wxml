@@ -1,0 +1,60 @@
+<view class="page">
+  <view class="profile card">
+    <view class="avatar">
+      <image class="avatar-rider" src="/assets/rider-loader-bounce.svg" mode="aspectFit" />
+    </view>
+    <view>
+      <view class="title small">{{nickname}}</view>
+    </view>
+  </view>
+  <view class="module brand-module" bindtap="goBrandConfig">
+    <view class="module-icon brand-icon">
+      <view class="icon-line green"></view>
+      <view class="icon-line blue"></view>
+      <view class="icon-line yellow"></view>
+    </view>
+    <view class="module-main">
+      <view class="module-title">品牌配置</view>
+      <view class="module-subtitle">管理默认参与顺路查询的品牌</view>
+    </view>
+    <view class="module-arrow">›</view>
+  </view>
+  <view class="module suggestion-module" bindtap="goBrandSuggestion">
+    <view class="module-icon suggestion-icon">
+      <view class="suggestion-bubble"></view>
+      <view class="suggestion-plus vertical"></view>
+      <view class="suggestion-plus horizontal"></view>
+    </view>
+    <view class="module-main">
+      <view class="module-title">品牌建议</view>
+      <view class="module-subtitle">告诉我们想补充的品牌</view>
+    </view>
+    <view class="module-arrow">›</view>
+  </view>
+  <view class="module place-module" bindtap="goUserPlaces">
+    <view class="module-icon place-icon">
+      <view class="pin-dot"></view>
+      <view class="pin-base"></view>
+    </view>
+    <view class="module-main">
+      <view class="module-title">个人点位</view>
+      <view class="module-subtitle">保存自己的常用地点</view>
+    </view>
+    <view class="module-arrow">›</view>
+  </view>
+  <view class="module review-module" bindtap="goReviews">
+    <view class="module-icon review-icon">
+      <view class="star-core">★</view>
+    </view>
+    <view class="module-main">
+      <view class="module-title">我的评价</view>
+      <view class="module-subtitle">查看自己写过的地点评价</view>
+    </view>
+    <view class="module-arrow">›</view>
+  </view>
+</view>
+<view wx:if="{{globalLoading}}" class="global-loader">
+  <view class="global-loader-box">
+    <image class="global-loader-image" src="/assets/rider-loader-bounce.svg" mode="aspectFit" />
+  </view>
+</view>

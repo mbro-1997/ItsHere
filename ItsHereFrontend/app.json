@@ -1,0 +1,48 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/location-search/index",
+    "pages/route-result/index",
+    "pages/result-filter/index",
+    "pages/place-detail/index",
+    "pages/profile/index",
+    "pages/brand-config/index",
+    "pages/brand-suggestion/index",
+    "pages/user-places/index",
+    "pages/reviews/index",
+    "pages/review-edit/index",
+    "pages/tag-edit/index"
+  ],
+  "window": {
+    "navigationBarTitleText": "搁这儿呢",
+    "navigationBarBackgroundColor": "#f5f8f6",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#f5f8f6"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "用于把当前位置作为顺路查询起点"
+    }
+  },
+  "tabBar": {
+    "color": "#98a4a5",
+    "selectedColor": "#0f9276",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "地图",
+        "iconPath": "assets/tabbar/tab-map.png",
+        "selectedIconPath": "assets/tabbar/tab-map-active.png"
+      },
+      {
+        "pagePath": "pages/profile/index",
+        "text": "我的",
+        "iconPath": "assets/tabbar/tab-profile.png",
+        "selectedIconPath": "assets/tabbar/tab-profile-active.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}
