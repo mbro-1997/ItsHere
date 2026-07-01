@@ -17,6 +17,7 @@ Page({
     sheetCollapsedHeightRpx: 176,
     sheetStartHeightRpx: 620,
     sheetTouchStartY: 0,
+    filterButtonBottomRpx: 488,
     rpxPerPx: 2,
     center: { latitude: 36.651216, longitude: 117.119999 }
   },
@@ -181,7 +182,12 @@ Page({
   },
 
   onOpenFilter() {
-    wx.navigateTo({ url: "/pages/result-filter/index" })
+    wx.navigateTo({
+      url: "/pages/result-filter/index",
+      fail: (err) => {
+        wx.showToast({ title: err.errMsg || "筛选页打开失败", icon: "none" })
+      }
+    })
   },
 
   initSheetSize() {
@@ -195,7 +201,8 @@ Page({
           sheetExpandedHeightRpx: expandedHeightRpx,
           sheetCollapsedHeightRpx: collapsedHeightRpx,
           sheetHeightRpx: expandedHeightRpx,
-          sheetStartHeightRpx: expandedHeightRpx
+          sheetStartHeightRpx: expandedHeightRpx,
+          filterButtonBottomRpx: this.getFilterButtonBottom(expandedHeightRpx)
         })
       }
     })
@@ -220,8 +227,13 @@ Page({
     const deltaPx = touch.clientY - this.data.sheetTouchStartY
     const nextHeight = this.clampSheetHeight(this.data.sheetStartHeightRpx - deltaPx * this.data.rpxPerPx)
     this.setData({
-      sheetHeightRpx: nextHeight
+      sheetHeightRpx: nextHeight,
+      filterButtonBottomRpx: this.getFilterButtonBottom(nextHeight)
     })
+  },
+
+  getFilterButtonBottom(heightRpx) {
+    return Math.max(44, Math.round(heightRpx - 132))
   },
 
   clampSheetHeight(heightRpx) {
@@ -232,10 +244,12 @@ Page({
   },
 
   snapSheet(expanded) {
+    const nextHeight = expanded ? this.data.sheetExpandedHeightRpx : this.data.sheetCollapsedHeightRpx
     this.setData({
       sheetExpanded: expanded,
       sheetDragging: false,
-      sheetHeightRpx: expanded ? this.data.sheetExpandedHeightRpx : this.data.sheetCollapsedHeightRpx
+      sheetHeightRpx: nextHeight,
+      filterButtonBottomRpx: this.getFilterButtonBottom(nextHeight)
     })
   },
 

@@ -8,7 +8,13 @@
     scale="14"
     show-location
     bindmarkertap="onMarkerTap"
-  />
+  >
+    <cover-view
+      class="floating-filter-button"
+      style="bottom: {{filterButtonBottomRpx}}rpx;"
+      bindtap="onOpenFilter"
+    >品牌筛选</cover-view>
+  </map>
   <view class="marker-popup" wx:if="{{selectedPlace}}">
     <view class="popup-close" catchtap="onClosePopup">×</view>
     <view class="popup-head">
@@ -40,14 +46,13 @@
     >
       <view class="sheet-handle"></view>
     </view>
-    <view
-      class="row sheet-head"
-      catchtouchstart="onSheetTouchStart"
-      catchtouchmove="onSheetTouchMove"
-      catchtouchend="onSheetTouchEnd"
-    >
-      <view class="title small">顺路点位</view>
-      <view class="secondary-btn compact" catchtap="onOpenFilter">品牌筛选</view>
+    <view class="row sheet-head">
+      <view
+        class="title small sheet-title-drag"
+        catchtouchstart="onSheetTouchStart"
+        catchtouchmove="onSheetTouchMove"
+        catchtouchend="onSheetTouchEnd"
+      >顺路点位</view>
     </view>
     <scroll-view class="sheet-list" scroll-y>
       <view class="empty" wx:if="{{!loading && places.length === 0}}">当前筛选下没有顺路点位</view>
